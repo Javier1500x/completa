@@ -1,0 +1,504 @@
+<header>
+  <h1 class="heartbeat">Para Ti, Mi Amor</h1>
+</header>
+
+<div class="hearts"></div>
+<div class="stars"></div>
+
+<div class="shooting-star" style="animation-delay: 0s;"></div>
+<div class="shooting-star" style="animation-delay: 3s; top: 60px; width: 140px;"></div>
+<div class="shooting-star" style="animation-delay: 7s; top: 120px; width: 90px;"></div>
+
+<section class="gallery" id="gallery">
+  <img src="https://www.debate.com.mx/__export/1758153687453/sites/debate/img/2025/09/17/han-felix-stray-kids.jpg_1085339914.jpg" alt="Foto 1" class="heartPop" />
+  <img src="https://preview.redd.it/250915-stray-kids-twitter-update-with-felix-and-han-v0-n9x42vl7ebpf1.jpg?width=1080&crop=smart&auto=webp&s=8fd2804daf184e8cdfa313c34603766e355cdef3" alt="Foto 2" class="heartPop" />
+  <img src="https://i.pinimg.com/736x/f7/18/2a/f7182a23fe58b9a1815b5f958c2cb732.jpg" alt="Foto 3" class="heartPop" />
+</section>
+
+<section class="music">
+  <button id="play-btn">▶️ Reproducir nuestra canción</button>
+  <div id="progress-container">
+    <div id="progress"></div>
+  </div>
+  <audio id="audio" preload="metadata">
+    <source src="https://javier1500x.github.io/completa/completa%20(2).mp3" type="audio/mpeg" />
+  </audio>
+</section>
+
+<section class="love-message" id="love-message">
+  <span class="typed-text" id="typed-text"></span>
+</section>
+
+<section class="letters" id="letters">
+  <div class="letter">A veces pienso en cómo sería mi vida si no te hubiera vuelto a encontrar... y honestamente, no me gusta imaginarla. Porque desde que regresaste, todo tiene más sentido, más luz, más amor. Eres mi mayor coincidencia.</div>
+  <div class="letter">Gracias por abrazar cada parte de mí, por entender mis silencios y reírte de mis tonterías. Eres mi paz y mi caos, mi compañera y mi hogar.</div>
+  <div class="letter">Quiero caminar contigo sin importar las tormentas, las dudas o el tiempo. Prometo que donde tú estés, yo también voy a estar, para cuidarte, amarte y celebrar cada día que estemos juntos.</div>
+  <div class="letter">Amo tu risa, tus enojos, tus ideas locas. Amo lo que eres y lo que somos cuando estamos juntos. Esta página es solo un intento de mostrarte cuánto significas para mí.</div>
+  <div class="letter">Nunca dudes de lo que siento. Mi amor por ti no cabe en palabras, pero aún así... te escribo esto para recordártelo siempre. Te amo con todo mi ser.</div>
+</section>
+
+<section class="phrases" id="phrases">
+  <p>"Amarte no fue una decisión, fue la consecuencia más bonita de conocerte."</p>
+  <p>"Eres el sueño que nunca supe que tenía, pero que no quiero dejar de vivir."</p>
+  <p>"Contigo aprendí que los detalles más pequeños pueden hacer los días más felices."</p>
+  <p>"Gracias por existir, por llegar a mi vida, por ser tú."</p>
+  <p>"No importa dónde, mientras estemos juntos, siempre será mi lugar favorito."</p>
+</section>
+
+<button id="teamo-btn" title="Haz clic para enviarte amor">Te Amo ❤️</button>
+
+<style>/* Reset y básicos */
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(270deg, #4b1051, #8a3ab9, #4b1051);
+  background-size: 600% 600%;
+  animation: backgroundShift 40s ease infinite;
+  color: #fff;
+  overflow-x: hidden;
+  cursor: url('data:image/svg+xml;utf8,<svg fill="pink" height="32" viewBox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 1.01 4.5 2.09C13.09 4.01 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>'), auto;
+}
+@keyframes backgroundShift {
+  0% {background-position:0% 50%}
+  50% {background-position:100% 50%}
+  100% {background-position:0% 50%}
+}
+
+header {
+  text-align: center;
+  padding: 70px 20px 30px;
+  user-select: none;
+}
+header h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4rem;
+  color: #ff8ac9;
+  text-shadow:
+    0 0 10px #ff66b2,
+    0 0 30px #ff66b2,
+    0 0 50px #ff33a6,
+    0 0 70px #ff0080;
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+@keyframes pulseGlow {
+  0%, 100% { text-shadow:
+    0 0 10px #ff66b2,
+    0 0 30px #ff66b2,
+    0 0 50px #ff33a6,
+    0 0 70px #ff0080; }
+  50% { text-shadow:
+    0 0 20px #ff99c9,
+    0 0 60px #ff99c9,
+    0 0 100px #ff6699,
+    0 0 140px #ff3399; }
+}
+
+/* Galería de fotos */
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  padding: 20px 10px 40px;
+  user-select: none;
+}
+.gallery img {
+  width: 300px;
+  height: auto;
+  border-radius: 25px;
+  box-shadow:
+    0 0 20px rgba(255, 102, 178, 0.6),
+    0 0 60px rgba(255, 51, 140, 0.3);
+  cursor: pointer;
+  filter: sepia(0.3) brightness(1.05);
+  transition: transform 0.7s ease, filter 0.7s ease;
+}
+.gallery img:hover {
+  transform: scale(1.1) rotate(3deg);
+  filter: sepia(0) brightness(1.1) drop-shadow(0 0 15px #ff4da6);
+  box-shadow:
+    0 0 40px rgba(255, 102, 178, 0.9),
+    0 0 90px rgba(255, 51, 140, 0.7);
+}
+
+/* Controles de música */
+.music {
+  text-align: center;
+  margin: 30px auto 60px;
+}
+#play-btn {
+  background: #ff4081;
+  color: white;
+  font-size: 1.5rem;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 40px;
+  box-shadow:
+    0 0 15px #ff4081;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.3s ease;
+}
+#play-btn:hover {
+  background: #ff79aa;
+}
+#progress-container {
+  width: 80%;
+  max-width: 600px;
+  height: 8px;
+  background: #fff1;
+  margin: 20px auto 0;
+  border-radius: 20px;
+  cursor: pointer;
+  user-select: none;
+}
+#progress {
+  height: 100%;
+  width: 0%;
+  background: #ff4081;
+  border-radius: 20px;
+  transition: width 0.1s linear;
+}
+
+/* Mensajes y cartas */
+.love-message {
+  max-width: 900px;
+  margin: 0 auto 40px;
+  font-size: 1.4rem;
+  line-height: 1.8;
+  padding: 0 15px;
+  color: #fff0f5;
+  user-select: none;
+  max-height: 230px;
+  overflow-y: auto;
+  border-radius: 25px;
+  box-shadow:
+    0 0 50px rgba(255, 102, 178, 0.7);
+  background: rgba(30, 5, 30, 0.6);
+  font-style: italic;
+  position: relative;
+  font-family: 'Georgia', serif;
+}
+
+.letters {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto 60px;
+  user-select: none;
+}
+.letter {
+  background: rgba(255, 192, 203, 0.15);
+  border-radius: 30px;
+  box-shadow:
+    0 0 15px rgba(255, 102, 178, 0.5);
+  font-size: 1.15rem;
+  padding: 25px 35px;
+  margin-bottom: 30px;
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  line-height: 1.7;
+  cursor: default;
+  color: #ffcee9;
+  transform-origin: top center;
+  transition: transform 0.5s ease;
+  user-select: text;
+}
+.letter:hover {
+  transform: scale(1.04);
+  box-shadow:
+    0 0 30px #ff99cc, 0 0 40px #ff66bb;
+}
+
+/* Animacion maquina de escribir en carta principal */
+.typed-text {
+  border-right: 3px solid #ff66b2;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.3rem;
+  color: #ffc0d9;
+  user-select: none;
+}
+
+/* Frases rotativas animadas */
+#phrases {
+  position: relative;
+  height: 120px; /* Ajusta altura para evitar salto de layout */
+  max-width: 900px;
+  margin: 0 auto 80px;
+  padding: 30px 20px;
+  text-align: center;
+  font-style: italic;
+  font-size: 1.3rem;
+  color: #fff0f5;
+  overflow: hidden;
+  user-select: none;
+}
+#phrases p {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  margin-bottom: 18px;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  text-shadow: 0 0 15px #ff99cc;
+}
+
+/* Boton Te Amo con vibracion y sombra */
+#teamo-btn {
+  display: block;
+  margin: 0 auto 70px;
+  padding: 15px 38px;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 40px;
+  background: #ff0080;
+  color: #fff;
+  cursor: pointer;
+  box-shadow:
+    0 0 20px #ff4da6,
+    0 0 60px #ff4da6;
+  user-select: none;
+  position: relative;
+  animation: vibrate 3s infinite ease-in-out;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+#teamo-btn:hover {
+  background-color: #ff4da6;
+  box-shadow:
+    0 0 30px #ff0080,
+    0 0 90px #ff0080;
+}
+@keyframes vibrate {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-3px); }
+  40%, 80% { transform: translateX(3px); }
+}
+
+/* Corazones que laten */
+.heartbeat {
+  animation: heartbeat 1.5s infinite;
+}
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+/* Corazones confetti */
+.confetti-heart {
+  position: fixed;
+  font-size: 24px;
+  pointer-events: none;
+  animation: confetti-fall 3s forwards ease-out;
+  user-select: none;
+  z-index: 9999;
+  opacity: 1;
+  filter: drop-shadow(0 0 4px #ff69b4);
+}
+@keyframes confetti-fall {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(120vh) rotate(360deg);
+  }
+}
+
+/* Estrellas fugaces */
+.shooting-star {
+  position: fixed;
+  top: -10px;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, #fff, rgba(255,255,255,0));
+  opacity: 0.8;
+  border-radius: 50%;
+  animation: shootingStar 4s linear infinite;
+}
+@keyframes shootingStar {
+  0% {
+    transform: translateX(-150vw) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(150vw) translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* Fondo animado de estrellas y corazones */
+.hearts, .stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+.heart, .star {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  animation: float 10s linear infinite;
+}
+.heart::before, .star::before {
+  content: '❤️';
+  font-size: 20px;
+}
+@keyframes float {
+  0% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-10vh);
+    opacity: 1;
+  }
+}
+</style>
+
+<script>
+    // Animación corazones y estrellas flotantes
+const hearts = document.querySelector('.hearts');
+const stars = document.querySelector('.stars');
+
+for (let i = 0; i < 60; i++) {
+  const heart = document.createElement('div');
+  heart.classList.add('heart');
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.animationDuration = 5 + Math.random() * 5 + 's';
+  hearts.appendChild(heart);
+
+  const star = document.createElement('div');
+  star.classList.add('star');
+  star.style.left = Math.random() * 100 + 'vw';
+  star.style.animationDuration = 3 + Math.random() * 7 + 's';
+  stars.appendChild(star);
+}
+
+// Confetti corazones en botón
+const btn = document.getElementById('teamo-btn');
+btn.addEventListener('click', () => {
+  for(let i=0; i<40; i++){
+    createConfettiHeart();
+  }
+});
+function createConfettiHeart() {
+  const heart = document.createElement('div');
+  heart.textContent = '❤️';
+  heart.classList.add('confetti-heart');
+  heart.style.left = (window.innerWidth/2 + (Math.random() - 0.5) * 250) + 'px';
+  heart.style.top = (window.innerHeight - 60) + 'px';
+  heart.style.fontSize = (12 + Math.random()*20) + 'px';
+  heart.style.opacity = 1;
+  heart.style.transform = `translateY(0) rotate(0deg)`;
+  document.body.appendChild(heart);
+  setTimeout(() => {
+    heart.style.transform = `translateY(${window.innerHeight + 150}px) rotate(${Math.random()*720}deg)`;
+    heart.style.opacity = 0;
+  }, 10);
+  setTimeout(() => {
+    heart.remove();
+  }, 3500);
+}
+
+// Corazones que siguen cursor
+window.addEventListener('mousemove', e => {
+  const follower = document.createElement('div');
+  follower.classList.add('heart');
+  follower.style.left = e.clientX + 'px';
+  follower.style.top = e.clientY + 'px';
+  follower.style.position = 'fixed';
+  follower.style.fontSize = '18px';
+  follower.style.pointerEvents = 'none';
+  follower.style.userSelect = 'none';
+  document.body.appendChild(follower);
+  setTimeout(() => follower.remove(), 1200);
+});
+
+// Máquina de escribir para carta principal
+const typedText = document.getElementById('typed-text');
+const loveMessage = "Aún recuerdo el día que te conocí 💕 fué tan hermoso, el día que nos hicimos novios... hoy hace 5 meses mi vida, te amoo tanto , gracias por estár conmigo en las buenas y en las malas te amo mi niña, te amo mi solecito💕";
+let index = 0;
+function typeWriter() {
+  if(index < loveMessage.length) {
+    typedText.textContent += loveMessage.charAt(index);
+    index++;
+    setTimeout(typeWriter, 40);
+  }
+}
+typeWriter();
+
+// Frases que cambian cada 4 segundos con animación suave
+const phrases = document.querySelectorAll('#phrases p');
+let currentPhrase = 0;
+
+function showPhrase(index) {
+  phrases.forEach((p, i) => {
+    p.style.opacity = '0';
+    p.style.transform = 'translateY(20px)';
+    p.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    if(i === index) {
+      p.style.opacity = '1';
+      p.style.transform = 'translateY(0)';
+    }
+  });
+}
+// Inicializamos mostrando la primera frase
+showPhrase(currentPhrase);
+
+// Cambiamos cada 4 segundos
+setInterval(() => {
+  currentPhrase = (currentPhrase + 1) % phrases.length;
+  showPhrase(currentPhrase);
+}, 4000);
+
+// Música play/pause y barra progreso
+const audio = document.getElementById('audio');
+const playBtn = document.getElementById('play-btn');
+const progressContainer = document.getElementById('progress-container');
+const progress = document.getElementById('progress');
+let playing = false;
+
+playBtn.addEventListener('click', () => {
+  if (!playing) {
+    audio.play();
+    playBtn.textContent = '⏸️ Pausar nuestra canción';
+    playing = true;
+  } else {
+    audio.pause();
+    playBtn.textContent = '▶️ Reproducir nuestra canción';
+    playing = false;
+  }
+});
+
+audio.addEventListener('timeupdate', () => {
+  const percent = (audio.currentTime / audio.duration) * 100;
+  progress.style.width = percent + '%';
+});
+
+progressContainer.addEventListener('click', e => {
+  const width = progressContainer.clientWidth;
+  const clickX = e.offsetX;
+  const duration = audio.duration;
+  audio.currentTime = (clickX / width) * duration;
+});
+
+// Animación corazones en fotos al hacer hover
+const heartPopImgs = document.querySelectorAll('.heartPop');
+heartPopImgs.forEach(img => {
+  img.addEventListener('mouseenter', () => {
+    img.classList.add('heartbeat');
+  });
+  img.addEventListener('mouseleave', () => {
+    img.classList.remove('heartbeat');
+  });
+});
+
+</script>
